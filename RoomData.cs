@@ -42,9 +42,15 @@ public class RoomData
         rooms.Add(stairway.RoomId, stairway);
         
         var diningRoom = new Room.RoomBuilder()
-            .AddRoomId("DiningRoom")
-            .AddDialogue("Add Dialogues")
+            .AddRoomId("DiningRoom") // william
+            .AddDialogue("When you step through the doors on the left side of the main hall,")
+            .AddDialogue("you enter a long, elegant dining room.") 
+            .AddDialogue("The atmosphere is heavy and quiet, lit mostly by the warm glow of a tall chandelier hanging from the ceiling.")
+            .AddDialogue("A long wooden banquet table stretches nearly the length of the room,") 
+            .AddDialogue(" its polished surface reflecting the dim light.A white tablecloth covers most of it,") 
+            .AddDialogue("though it looks slightly old and dusty, suggesting the room has not been used in some time.")
             .AddAdjacentRoom(Directions.Down, "Entrance")
+            .AddAdjacentRoom(Directions.Right, "Kitchen")
             .Build();
         
         rooms.Add(diningRoom.RoomId, diningRoom);
@@ -58,5 +64,10 @@ public class RoomData
         rooms.Add(hallway.RoomId, hallway);
         
         // Continue adding more rooms
+        var kitchen = new Room.RoomBuilder()
+            .AddRoomId("Kitchen") // Add room id
+            .AddDialogue("You enter a square room,") // Add room dialogue(s)
+            .AddAdjacentRoom(Directions.Down, "DiningRoom")// Add adjacent room(s)
+            .Build();
     }
 }
